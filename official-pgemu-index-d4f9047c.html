@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>pg模拟器 · 产品说明</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #f4efe8;
+      font-family: system-ui, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', sans-serif;
+      color: #2e241e;
+      line-height: 1.65;
+      padding: 0 1rem 3rem;
+    }
+    .page {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #fcf9f5;
+      border-radius: 28px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.04), 0 2px 6px rgba(0,0,0,0.03);
+      padding: 2.4rem 2rem;
+    }
+    @media (max-width: 540px) {
+      .page { padding: 1.6rem 1.2rem; }
+    }
+
+    /* 标题 */
+    h1 {
+      font-size: 2rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: #3c2e26;
+      border-left: 6px solid #b2957c;
+      padding-left: 1rem;
+      margin: 0 0 1.8rem;
+    }
+    .subhead {
+      font-size: 1.1rem;
+      color: #6b5a4d;
+      margin: -1rem 0 2rem 0.2rem;
+      font-weight: 380;
+      border-bottom: 1px solid #e4d9cf;
+      padding-bottom: 0.6rem;
+    }
+
+    /* 文章段落 */
+    p {
+      margin-bottom: 1.4rem;
+      font-size: 1rem;
+      color: #3f332b;
+    }
+    p a {
+      color: #8b6f57;
+      text-decoration: none;
+      font-weight: 480;
+      border-bottom: 1px dotted #c8b6a7;
+      transition: border-bottom-color 0.2s;
+    }
+    p a:hover {
+      border-bottom-color: #8b6f57;
+    }
+
+    /* 卡片/特点区块 */
+    .feature-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin: 2rem 0 1.8rem;
+    }
+    .feature-item {
+      background: #f6f0ea;
+      border-radius: 20px;
+      flex: 1 1 180px;
+      padding: 1.2rem 1rem 1rem;
+      box-shadow: inset 0 1px 2px rgba(255,255,245,0.7), 0 2px 6px rgba(0,0,0,0.02);
+    }
+    .feature-item strong {
+      display: block;
+      font-weight: 550;
+      font-size: 1.05rem;
+      color: #4e3d32;
+      margin-bottom: 0.2rem;
+    }
+    .feature-item span {
+      font-size: 0.92rem;
+      color: #4f3f35;
+    }
+
+    /* 引用块 / 提示框 */
+    .notice-box {
+      background: #ece3db;
+      border-left: 6px solid #b89a7e;
+      padding: 1.2rem 1.4rem;
+      border-radius: 12px;
+      margin: 1.8rem 0;
+      font-size: 0.98rem;
+      color: #3f342d;
+    }
+    .notice-box strong {
+      color: #3b2b22;
+    }
+
+    .faq-brief {
+      background: #f7f2ec;
+      border-radius: 14px;
+      padding: 1.4rem 1.5rem;
+      margin: 2rem 0 1rem;
+    }
+    .faq-brief details {
+      margin-bottom: 0.65rem;
+      border-bottom: 1px dashed #d9cbbf;
+      padding-bottom: 0.5rem;
+    }
+    .faq-brief details:last-child {
+      border-bottom: none;
+    }
+    .faq-brief summary {
+      font-weight: 500;
+      color: #3e3129;
+      cursor: pointer;
+      padding: 0.2rem 0;
+      list-style: disclosure-closed inside;
+    }
+    .faq-brief details[open] summary {
+      list-style: disclosure-open inside;
+    }
+    .faq-brief .answer {
+      margin-top: 0.3rem;
+      padding-left: 0.6rem;
+      color: #4d3d33;
+      font-size: 0.95rem;
+    }
+
+    /* 场景/建议小段落 */
+    .usage-suggestion {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin: 1.6rem 0;
+    }
+    .usage-suggestion .item {
+      padding: 0.5rem 0.9rem;
+      background: #ffffffd6;
+      border-radius: 40px;
+      border: 1px solid #ded3c7;
+      font-size: 0.96rem;
+      color: #3b2f28;
+    }
+    .usage-suggestion .item b {
+      color: #5f4a39;
+    }
+
+    .footer-note {
+      margin-top: 2.6rem;
+      padding-top: 1rem;
+      border-top: 1px solid #e0d4c9;
+      font-size: 0.9rem;
+      color: #766555;
+      text-align: left;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #e9ddd2;
+      margin: 1.2rem 0;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <h1>pg模拟器 · 产品摘要</h1>
+  <div class="subhead">快速识别用途 · 先了解，再上手</div>
+
+  <p>
+    <strong>pg模拟器</strong> 是一类面向特定场景的轻量工具型产品，主要用于在本地或可控环境中运行与测试与 PostgreSQL 协议兼容的逻辑。如果你正在寻找一个能够快速验证数据库行为、调试语句或学习查询机制的辅助环境，这个方向值得留意。网站 <a href="https://official-pgemu.com">pg模拟器</a> 就是围绕这个目的搭建的。
+  </p>
+  <p>
+    很多用户初次接触时最大的困惑是：它到底是用来替代真实数据库，还是某种开发助手？实际用途更偏向后者 —— 它提供了一种可复现、可裁剪的模拟层，适合 CI 流水线、沙箱实验、功能原型验证等不需要持久化存储或高并发负载的场景。
+  </p>
+
+  <!-- 亮点卡片 -->
+  <div class="feature-grid">
+    <div class="feature-item">
+      <strong>协议兼容</strong>
+      <span>核心交互遵循 PostgreSQL 报文格式，降低集成成本。</span>
+    </div>
+    <div class="feature-item">
+      <strong>无残留状态</strong>
+      <span>默认不写盘，每次实例都是干净状态，测试更可控。</span>
+    </div>
+    <div class="feature-item">
+      <strong>轻量启动</strong>
+      <span>无需完整数据库安装，适合临时或容器化使用。</span>
+    </div>
+  </div>
+
+  <!-- 使用建议区块 -->
+  <div class="usage-suggestion">
+    <div class="item"><b>建议一</b> · 初次试用时先查阅文档中的“模拟深度”说明，确认覆盖了所需的语法或功能点。</div>
+    <div class="item"><b>建议二</b> · 在本地开发环境中搭配单元测试框架使用，可以隔离外部数据库依赖。</div>
+    <div class="item"><b>建议三</b> · 如果遇到与真实 PostgreSQL 行为不一致的地方，优先检查模拟层是否实现了该特性。</div>
+  </div>
+
+  <!-- 提示框：克制说明 -->
+  <div class="notice-box">
+    <strong>⸺ 可信但克制的说明 ⸺</strong><br>
+    本资源并非完整的关系数据库，不适用于生产数据存储、事务密集型负载或需要游标、窗口函数深度支持的场景。建议将其定位为“协议兼容的模拟环境”，而非替代品。任何针对特定版本的依赖，请基于实际测试结果做决策。
+  </div>
+
+  <!-- FAQ 摘要 -->
+  <div class="faq-brief">
+    <details>
+      <summary>pg模拟器 主要解决什么问题？</summary>
+      <div class="answer">它帮助开发者在不需要安装完整数据库的情况下，快速测试 SQL 解析、简单查询行为以及协议握手流程，节省环境搭建时间。</div>
+    </details>
+    <details>
+      <summary>与真实 PostgreSQL 有什么关键区别？</summary>
+      <div class="answer">模拟器不包含存储引擎、MVCC、并发控制、复制等高阶模块，因此只适用于功能验证和语法兼容测试，不适合数据持久化。</div>
+    </details>
+    <details>
+      <summary>我该从哪里获取最新版本或文档？</summary>
+      <div class="answer">直接访问 <a href="https://official-pgemu.com">pg模拟器</a> 项目主页，上面会提供版本动态、使用指南以及常见问题列表。</div>
+    </details>
+  </div>
+
+  <!-- 场景补充 -->
+  <p>
+    如果你正在搭建一个包含数据库交互的演示原型，或者希望在离线环境里向同事快速展示 PostgreSQL 的某些行为特性，<strong>pg模拟器</strong> 可能会比部署一套真实实例更轻便。很多用户把它的可执行文件放在 CI 镜像里用于集成测试，效果也相当稳定。
+  </p>
+
+  <hr>
+  <div class="footer-note">
+    <span>最后补充：本页仅作产品说明用途，所有关于功能边界的描述均基于公开信息。实际使用中请以 <a href="https://official-pgemu.com">pg模拟器</a> 官方发布的内容为准，并自行评估适用性。</span>
+  </div>
+</div>
+</body>
+</html>
