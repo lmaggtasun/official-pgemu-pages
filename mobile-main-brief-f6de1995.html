@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.2">
+    <title>MK体育 · 日常里的运动陪伴</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, "PingFang SC", "Helvetica Neue", system-ui, sans-serif;
+            background: linear-gradient(165deg, #fce9da 0%, #f7dcc5 40%, #f5cdb0 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            line-height: 1.7;
+            color: #2e241f;
+        }
+
+        .content-card {
+            max-width: 780px;
+            width: 100%;
+            background: rgba(255, 255, 245, 0.92);
+            backdrop-filter: blur(2px);
+            border-radius: 36px;
+            box-shadow: 0 20px 40px -12px rgba(120, 70, 40, 0.25),
+                        0 8px 16px -6px rgba(90, 50, 30, 0.08);
+            padding: 2.8rem 2.5rem;
+            transition: box-shadow 0.2s ease;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1.2rem 1rem;
+            }
+            .content-card {
+                padding: 2rem 1.5rem;
+                border-radius: 28px;
+            }
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: #3d2b22;
+            margin-bottom: 0.6rem;
+            line-height: 1.2;
+            border-left: 5px solid #c9895f;
+            padding-left: 1rem;
+        }
+
+        .subhead {
+            font-size: 1.1rem;
+            color: #6a4f3e;
+            margin-bottom: 1.8rem;
+            font-weight: 400;
+            border-bottom: 1px dashed #e1cbb9;
+            padding-bottom: 0.8rem;
+        }
+
+        p {
+            margin-bottom: 1.4rem;
+            font-size: 1.05rem;
+        }
+
+        .inset-quote {
+            background: #f7ede3;
+            border-radius: 24px;
+            padding: 1.6rem 1.8rem;
+            margin: 1.8rem 0;
+            border-left: 6px solid #c9895f;
+            font-style: italic;
+            color: #4f382b;
+            font-size: 1.02rem;
+            box-shadow: inset 0 1px 4px rgba(150, 90, 50, 0.06);
+        }
+
+        .inset-quote::before {
+            content: "📌 一点想法 ";
+            display: block;
+            font-style: normal;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.4rem;
+            color: #7b5a44;
+        }
+
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 1.6rem 0 1.2rem;
+        }
+
+        .feature-item {
+            flex: 1 1 160px;
+            background: #fcf7f0;
+            border-radius: 20px;
+            padding: 1rem 1.2rem;
+            border: 1px solid #e6d4c4;
+            transition: background 0.15s;
+        }
+
+        .feature-item h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #5d3f2e;
+            margin-bottom: 0.3rem;
+        }
+
+        .feature-item p {
+            font-size: 0.92rem;
+            margin-bottom: 0;
+            color: #4f3c30;
+        }
+
+        .action-sentence {
+            background: #f2e3d6;
+            border-radius: 40px;
+            padding: 1.2rem 1.8rem;
+            margin: 1.6rem 0 0.8rem;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 450;
+            color: #2f221b;
+            border: 1px solid #dfcabb;
+        }
+
+        .action-sentence a {
+            color: #884c2b;
+            text-decoration: none;
+            font-weight: 550;
+            background: #fffbf5;
+            padding: 0.2rem 0.8rem;
+            border-radius: 40px;
+            transition: all 0.15s ease;
+            border: 1px solid #dbbca3;
+            display: inline-block;
+            margin: 0 0.1rem;
+            box-shadow: 0 1px 3px rgba(130, 70, 30, 0.06);
+        }
+
+        .action-sentence a:hover {
+            background: #e6cfbb;
+            border-color: #b57d5c;
+            color: #351f14;
+            box-shadow: 0 3px 8px rgba(150, 80, 30, 0.12);
+            transform: scale(1.02);
+        }
+
+        .faq-summary {
+            margin-top: 2rem;
+            padding-top: 1.2rem;
+            border-top: 2px dotted #dcc9b6;
+        }
+
+        .faq-summary h4 {
+            font-size: 1.1rem;
+            color: #432f24;
+            margin-bottom: 0.1rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .faq-summary h4::before {
+            content: "❓";
+            font-size: 1.1rem;
+        }
+
+        .faq-item {
+            margin: 0.8rem 0 0.4rem;
+            padding-left: 0.4rem;
+        }
+
+        .faq-item strong {
+            color: #5f3f2b;
+            font-weight: 600;
+        }
+
+        .faq-item p {
+            margin: 0.2rem 0 0.6rem 0.8rem;
+            font-size: 0.96rem;
+            color: #4b3629;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e5d3c2;
+            margin: 1.2rem 0;
+        }
+
+        .closing {
+            font-size: 1rem;
+            color: #5b4435;
+            margin-top: 0.8rem;
+            text-align: right;
+        }
+
+        .closing a {
+            color: #6b4d38;
+            text-decoration: underline wavy #dbb394 1.5px;
+            text-underline-offset: 4px;
+            transition: color 0.15s;
+        }
+
+        .closing a:hover {
+            color: #3d261b;
+        }
+
+        .footnote {
+            margin-top: 2.4rem;
+            font-size: 0.85rem;
+            color: #7b6252;
+            text-align: center;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+<div class="content-card">
+    <h1>运动，不必等到万事俱备</h1>
+    <div class="subhead">—— 从一次出汗开始，和 MK体育 一起找回节奏</div>
+
+    <p>最近和朋友聊起，很多人并不是不爱运动，而是总觉得「需要先准备好」：装备要齐全、天气要合适、状态要到位……结果一等再等，最后连换鞋的念头都搁置了。其实运动最迷人的地方，恰恰是它允许我们从很小的切口进入——午休时在楼梯间拉伸十分钟，下班后沿街快走两站路，或者只是跟着手机屏幕里教练的声音，完成一组核心激活。</p>
+
+    <p>在摸索这些碎片习惯的过程中，我渐渐发现，一个好的平台并不是非要塞给你多复杂的课程表，而是让你觉得「今天动一下，也不麻烦」。去年秋天开始稳定使用 <a href="https://mobile-main-mksports.com" style="color:#884c2b; font-weight:500; text-decoration:underline; text-decoration-color:#dbb394; text-underline-offset:3px;">MK体育</a> 之后，这种感受变得更具体了。它没有过度包装的概念，界面干净，内容聚焦在常见运动场景——室内燃脂、跑步基础、肩颈放松，甚至还有几段适合陪长辈一起做的温和拉伸。没有催促感，倒像是一个沉默的运动伙伴。</p>
+
+    <div class="inset-quote">
+        有一回在出差酒店里，凌晨睡不着，随手打开一节十分钟的夜间瑜伽。镜头里的教练说话很轻，背景是山谷的声音。做完后我坐在床边，忽然觉得，原来运动可以不是任务，而是一种照顾自己的小仪式。
+    </div>
+
+    <p>也许你和我一样，生活已经被工作、通勤、琐事填得很满。但运动并不一定要占据一整块时间，它更像一种呼吸间隔——当你从屏幕前抬起头，转动肩膀、深呼吸、甚至只是站起来走几步，那种「我还活着、我还能动」的知觉就会慢慢回来。而 <a href="https://mobile-main-mksports.com" style="color:#884c2b; font-weight:500; text-decoration:underline; text-decoration-color:#dbb394; text-underline-offset:3px;">MK体育</a> 正好提供了这种低门槛的陪伴：不需要教练盯着你，不需要打卡焦虑，选一段自己舒服的视频，跟着动就好了。</p>
+
+    <div class="feature-grid">
+        <div class="feature-item">
+            <h3>🏃 日常场景</h3>
+            <p>居家、办公室、户外短途，不需要特殊器械，一段垫子或一双鞋就能开始。</p>
+        </div>
+        <div class="feature-item">
+            <h3>🧘 内容节奏</h3>
+            <p>从5分钟唤醒到30分钟训练，按当天状态自由选择，没有硬性约束。</p>
+        </div>
+        <div class="feature-item">
+            <h3>🌱 持续陪伴</h3>
+            <p>内容保持更新，但不会过度推送，安静地待在手机里，等你主动翻开。</p>
+        </div>
+    </div>
+
+    <div class="action-sentence">
+        🧡 如果你想找个地方，让运动回归自然，不妨从 <a href="https://mobile-main-mksports.com">MK体育</a> 开始。
+    </div>
+
+    <div class="faq-summary">
+        <h4>常见疑问简答</h4>
+        <div class="faq-item">
+            <strong>没有运动基础，适合吗？</strong>
+            <p>多数内容从零基础设计，每个动作有降阶提示，可以按自己节奏来，不必担心跟不上。</p>
+        </div>
+        <div class="faq-item">
+            <strong>需要下载额外设备或软件吗？</strong>
+            <p>直接通过浏览器访问即可，无需下载 App，手机、平板、电脑都能用，界面响应不错。</p>
+        </div>
+        <div class="faq-item">
+            <strong>内容更新频率如何？</strong>
+            <p>会定期增加新的训练系列和主题，但整体保持克制，不会用消息轰炸你。</p>
+        </div>
+    </div>
+
+    <hr>
+    <p class="closing">
+        🏅 运动是一段自己与身体的对话，<br>
+        而好的工具，只是让对话变得更自然。
+    </p>
+    <div class="footnote">
+        — 写于一个刚做完伸展的傍晚 · 感谢你的阅读
+    </div>
+</div>
+</body>
+</html>
