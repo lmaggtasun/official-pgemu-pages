@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MK体育 · 运动生活信息站</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background: #f4f5f7;
+      line-height: 1.6;
+      color: #1e1e1e;
+    }
+
+    /* 深色头图 */
+    .hero {
+      background: linear-gradient(145deg, #0b1a2a 0%, #1d2f3f 100%);
+      color: #eef3f8;
+      padding: 5rem 1.5rem 3.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30px;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: #f4f5f7;
+      border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      margin-bottom: 0.75rem;
+      color: #f0f6ff;
+    }
+    .hero .sub {
+      font-size: 1.2rem;
+      max-width: 620px;
+      margin: 0 auto 1.2rem;
+      opacity: 0.85;
+      font-weight: 350;
+    }
+    .hero .tagline {
+      display: inline-block;
+      background: rgba(255,220,100,0.18);
+      padding: 0.3rem 1.2rem;
+      border-radius: 40px;
+      font-size: 0.95rem;
+      border: 1px solid rgba(255,210,120,0.3);
+      color: #f5e5c6;
+      margin-top: 0.25rem;
+    }
+
+    /* 主内容容器 */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 3rem;
+    }
+
+    /* 卡片网格 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.8rem;
+      margin: -1rem 0 2.5rem;
+      position: relative;
+      z-index: 2;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.8rem 1.5rem 1.8rem;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.04), 0 2px 6px rgba(0,0,0,0.02);
+      transition: transform 0.1s ease, box-shadow 0.2s;
+      border: 1px solid #f0f1f4;
+    }
+    .card:hover {
+      box-shadow: 0 14px 30px rgba(0,0,0,0.05);
+      transform: translateY(-2px);
+    }
+    .card .icon {
+      font-size: 2rem;
+      margin-bottom: 0.6rem;
+      display: inline-block;
+    }
+    .card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      color: #0b1f2e;
+    }
+    .card p {
+      font-size: 0.95rem;
+      color: #3a4049;
+      letter-spacing: 0.01em;
+    }
+
+    /* 适合人群区块 */
+    .audience-section {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 2.2rem 2rem;
+      margin: 2.5rem 0 2.5rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.02);
+    }
+    .audience-section h2 {
+      font-size: 1.6rem;
+      font-weight: 560;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.8rem;
+      border-left: 5px solid #d4a14b;
+      padding-left: 1rem;
+    }
+    .audience-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem 2rem;
+    }
+    .audience-item {
+      flex: 1 1 180px;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+    }
+    .audience-item .badge {
+      background: #eef3f7;
+      border-radius: 40px;
+      padding: 0.25rem 0.9rem;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #1d3b4e;
+      margin-right: 0.2rem;
+      white-space: nowrap;
+    }
+    .audience-item p {
+      font-size: 0.95rem;
+      color: #2d3746;
+    }
+
+    /* 自然链接段落 */
+    .link-paragraph {
+      background: #fafbfc;
+      border-radius: 24px;
+      padding: 2rem 2rem;
+      margin: 2rem 0;
+      border: 1px solid #e9edf2;
+    }
+    .link-paragraph h2 {
+      font-size: 1.5rem;
+      font-weight: 520;
+      margin-bottom: 1rem;
+      color: #0b1a2a;
+    }
+    .link-paragraph p {
+      font-size: 1rem;
+      max-width: 780px;
+      color: #2c3649;
+    }
+    .link-paragraph a {
+      color: #b7742c;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border 0.15s;
+    }
+    .link-paragraph a:hover {
+      border-bottom: 1px solid #b7742c;
+    }
+
+    /* 常见问题摘要 */
+    .faq-mini {
+      margin: 2.8rem 0 2rem;
+    }
+    .faq-mini h2 {
+      font-size: 1.5rem;
+      font-weight: 540;
+      margin-bottom: 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .faq-item {
+      margin-bottom: 1.3rem;
+      border-bottom: 1px solid #e4e8ee;
+      padding-bottom: 1rem;
+    }
+    .faq-item strong {
+      font-weight: 600;
+      color: #132433;
+      display: block;
+      margin-bottom: 0.25rem;
+      font-size: 1rem;
+    }
+    .faq-item p {
+      color: #3b4559;
+      font-size: 0.95rem;
+      margin-top: 0.2rem;
+    }
+
+    /* 页脚 */
+    footer {
+      text-align: center;
+      padding: 2.5rem 1.5rem 2rem;
+      color: #6d788b;
+      font-size: 0.85rem;
+      border-top: 1px solid #e2e6ed;
+      background: #fafbfc;
+      margin-top: 2.5rem;
+    }
+
+    /* 强调色用于其他链接（非强制） */
+    .emph-link {
+      color: #b7742c;
+      font-weight: 450;
+      text-decoration: none;
+    }
+    .emph-link:hover {
+      text-decoration: underline;
+    }
+
+    /* 响应式 */
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2rem; }
+      .hero .sub { font-size: 1rem; }
+      .card-grid { gap: 1.2rem; }
+      .audience-section { padding: 1.8rem 1.2rem; }
+      .link-paragraph { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 深色头图 -->
+  <header class="hero">
+    <h1>MK体育</h1>
+    <p class="sub">在节奏与汗水之间，找到属于你的运动叙述</p>
+    <span class="tagline">⚡ 轻盈 · 多元 · 陪伴</span>
+  </header>
+
+  <main class="container">
+
+    <!-- 信息卡片：主视觉与用途 -->
+    <div class="card-grid">
+      <div class="card">
+        <div class="icon">🏅</div>
+        <h3>主视觉 · 运动脉搏</h3>
+        <p>围绕赛事、训练与户外场景，提供具有现场感的资讯与观点，关注运动本身而非喧嚣。</p>
+      </div>
+      <div class="card">
+        <div class="icon">🧩</div>
+        <h3>用途卡片 · 日常参考</h3>
+        <p>从赛程速览到装备轻解读，帮助运动爱好者在碎片时间里快速获取有价值的信息。</p>
+      </div>
+      <div class="card">
+        <div class="icon">💬</div>
+        <h3>交流角落 · 氛围感</h3>
+        <p>不制造焦虑，不鼓吹跟风，只呈现真实的运动生态与社群温度。</p>
+      </div>
+      <div class="card">
+        <div class="icon">📌</div>
+        <h3>内容聚合 · 自然触达</h3>
+        <p>聚焦运动文化、人物故事与实用技巧，让每一次阅读都像与朋友聊起最近的一场球。</p>
+      </div>
+    </div>
+
+    <!-- 适合人群 -->
+    <section class="audience-section">
+      <h2>🏃 这些人群常常会发现 MK体育 的共鸣之处</h2>
+      <div class="audience-list">
+        <div class="audience-item">
+          <span class="badge">⚽ 业余爱好者</span>
+          <p>周末踢一场球、跑一次步，想要更轻松的资讯入口</p>
+        </div>
+        <div class="audience-item">
+          <span class="badge">📺 赛事观察者</span>
+          <p>不盲从热度，喜欢挖掘比赛背后的细节与逻辑</p>
+        </div>
+        <div class="audience-item">
+          <span class="badge">🧘 运动生活者</span>
+          <p>把运动当作日常仪式，重视身心平衡与可持续</p>
+        </div>
+        <div class="audience-item">
+          <span class="badge">📚 内容阅读者</span>
+          <p>偏好温和、克制的表达，不追求标题刺激</p>
+        </div>
+      </div>
+      <p style="margin-top: 1.2rem; font-size: 0.95rem; color: #435160;">以上画像并非标签，而是我们对运动内容使用者的一种侧写。</p>
+    </section>
+
+    <!-- 自然链接段落 (嵌入 a 标签) -->
+    <section class="link-paragraph">
+      <h2>从运动出发，回到生活</h2>
+      <p>
+        如果你喜欢在训练后翻一翻赛事观点，或者在通勤时读一段关于耐力与恢复的随笔，那么不妨在休闲时看看 
+        <a href="https://onlinechina-mksports.com">MK体育</a> 如何围绕这些主题组织内容。它不追求每一条都成为爆款，只希望在你需要的时候提供一份有温度的运动参照。
+      </p>
+      <p style="margin-top: 1rem;">
+        无论是团队项目还是个人练习，好的内容应该像一位冷静的陪练——不喧哗，但始终在场。
+      </p>
+    </section>
+
+    <!-- FAQ 摘要 (4个条目) -->
+    <section class="faq-mini">
+      <h2>❓ 常见问题摘要</h2>
+      <div class="faq-item">
+        <strong>MK体育 的内容偏向哪一类运动？</strong>
+        <p>覆盖足球、篮球、跑步、游泳、骑行等主流项目，也会不定期介绍攀岩、越野等小众领域，尊重每一种运动方式。</p>
+      </div>
+      <div class="faq-item">
+        <strong>文章更新频率是怎样的？</strong>
+        <p>保持每周 3–5 篇原创或编译内容，避免信息过载，重点放在可读性与启发性上。</p>
+      </div>
+      <div class="faq-item">
+        <strong>是否需要注册才能阅读？</strong>
+        <p>目前所有文章对访客开放浏览，无需登录，方便随时翻阅。</p>
+      </div>
+      <div class="faq-item">
+        <strong>是否有社区或讨论区？</strong>
+        <p>暂时以内容沉淀为主，未来会根据读者反馈考虑轻量互动形式。</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 探索运动的不同面向 · 内容仅供参考，不构成任何专业建议</p>
+    <p style="margin-top: 0.5rem; opacity: 0.7;">温和表达，自在运动</p>
+  </footer>
+
+</body>
+</html>
