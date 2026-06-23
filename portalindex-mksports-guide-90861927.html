@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>作为索引 · MK体育</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f9f8f6;
+      font-family: Georgia, 'Times New Roman', Times, 'Songti SC', serif;
+      color: #26231e;
+      line-height: 1.75;
+      padding: 2rem 1.2rem;
+    }
+
+    .page {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* 标题区 */
+    .title-block {
+      margin: 3rem 0 2.5rem 0;
+      border-bottom: 1px solid #dcd6ce;
+      padding-bottom: 1.8rem;
+    }
+
+    .title-block h1 {
+      font-size: 2.2rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+      color: #1f1c18;
+      margin-bottom: 0.6rem;
+    }
+
+    .title-block .sub {
+      font-size: 1rem;
+      color: #78736b;
+      font-style: italic;
+      border-left: 3px solid #b3a99b;
+      padding-left: 1rem;
+      margin-top: 0.3rem;
+    }
+
+    /* 导语 */
+    .lead {
+      font-size: 1.1rem;
+      color: #3d3730;
+      margin-bottom: 2rem;
+      line-height: 1.7;
+      padding-right: 0.5rem;
+    }
+
+    .lead strong {
+      font-weight: 500;
+      color: #1f1c18;
+    }
+
+    /* 正文段落 */
+    .content p {
+      margin: 1.4rem 0;
+      text-indent: 2em;
+      word-break: break-word;
+    }
+
+    .content p:first-of-type {
+      margin-top: 0;
+    }
+
+    .content p.no-indent {
+      text-indent: 0;
+    }
+
+    /* 引用提示块 */
+    .pull-quote {
+      margin: 2.2rem 0 2.2rem 1rem;
+      padding: 0.8rem 1.2rem;
+      border-left: 4px solid #bfa68c;
+      background: #f3efe9;
+      font-size: 1rem;
+      color: #4a4239;
+      font-style: normal;
+      line-height: 1.7;
+    }
+
+    .pull-quote em {
+      font-style: italic;
+      color: #5a4e40;
+    }
+
+    /* 场景/特点，用简洁的list 嵌入正文气氛 */
+    .note-list {
+      margin: 1.8rem 0 1.8rem 1.2rem;
+      padding-left: 0.2rem;
+      list-style: none;
+    }
+
+    .note-list li {
+      margin-bottom: 0.9rem;
+      position: relative;
+      padding-left: 1.5rem;
+      color: #3d3730;
+      line-height: 1.6;
+    }
+
+    .note-list li::before {
+      content: "—";
+      position: absolute;
+      left: 0;
+      color: #9f8d7a;
+    }
+
+    /* 访问句（自然嵌入链接） */
+    .access-sentence {
+      margin: 2.5rem 0 2rem 0;
+      padding: 1rem 0 1rem 1rem;
+      border-left: 2px dashed #b3a99b;
+      font-size: 1.05rem;
+      color: #2e2a25;
+      background: transparent;
+    }
+
+    .access-sentence a {
+      color: #7d674f;
+      text-decoration: none;
+      border-bottom: 1px solid #cbb9a4;
+      transition: border-color 0.2s;
+    }
+
+    .access-sentence a:hover {
+      border-bottom: 2px solid #7d674f;
+    }
+
+    /* FAQ 摘要（极简） */
+    .faq-tiny {
+      margin: 2.8rem 0 3.5rem 0;
+      border-top: 1px solid #ddd7ce;
+      padding-top: 1.8rem;
+    }
+
+    .faq-tiny h2 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: #4d443b;
+      margin-bottom: 0.8rem;
+      letter-spacing: 0.5px;
+    }
+
+    .faq-item {
+      margin: 0.9rem 0;
+    }
+
+    .faq-item .q {
+      font-weight: 400;
+      color: #3d3730;
+    }
+
+    .faq-item .a {
+      color: #615a51;
+      margin-left: 1.2rem;
+      font-size: 0.95rem;
+      border-left: 1px solid #c9beb1;
+      padding-left: 0.8rem;
+      margin-top: 0.2rem;
+    }
+
+    hr {
+      border: 0;
+      height: 1px;
+      background: linear-gradient(to right, transparent, #cdc3b6, transparent);
+      margin: 2rem 0;
+    }
+
+    .footer-note {
+      font-size: 0.9rem;
+      color: #8c8479;
+      text-align: center;
+      margin-top: 2.8rem;
+      border-top: 1px solid #e5ddd2;
+      padding-top: 2rem;
+      letter-spacing: 0.3px;
+    }
+
+    /* 响应式 */
+    @media (max-width: 480px) {
+      body {
+        padding: 1.5rem 0.9rem;
+      }
+
+      .title-block h1 {
+        font-size: 1.6rem;
+      }
+
+      .title-block .sub {
+        font-size: 0.9rem;
+      }
+
+      .content p {
+        text-indent: 1.8em;
+      }
+
+      .pull-quote {
+        margin-left: 0.4rem;
+        padding: 0.6rem 0.9rem;
+      }
+
+      .note-list {
+        margin-left: 0.4rem;
+      }
+
+      .access-sentence {
+        padding-left: 0.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- 标题 -->
+  <div class="title-block">
+    <h1>索引而非终点</h1>
+    <div class="sub">从资料整理的角度看 MK体育 信息节点</div>
+  </div>
+
+  <!-- 导语 -->
+  <div class="lead">
+    信息聚合这件事，做久了会发现：<strong>最好的索引不是目录，而是一个值得反复确认的坐标</strong>。  
+    以下关于 MK体育 的记述，来自日常收集与笔记整理，不是评测，更非推荐，只是一条比较清晰的线索。
+  </div>
+
+  <!-- 正文多段 -->
+  <div class="content">
+    <p>
+      起初只是在一个体育资料归档中看到这个名字。当时我正尝试把不同平台的运动项目、赛事记录和社区讨论整合到同一套标签系统里。大部分体育类站点要么偏向新闻时效，要么过于垂直论坛化，很难找到一个相对中立的、以信息结构为优先的页面。MK体育 出现在一批筛选结果中，起初没有特别留意，直到反复引用它的赛事基础数据时才发现：它的内容组织方式更接近一种“静态资料库”，没有过度刷新的首页，也没有强推的直播流。
+    </p>
+    <p>
+      之后花了大概两周，把其中关于足球、篮球以及部分小众项目的页面结构与索引方式做了拆解记录。给我的感觉是，它的页面层级偏平，分类导航克制，很多二级页面甚至像一份打印出来的手册，条目清楚，没有多余装饰。对于只是需要确认赛程、历史数据或者运动项目基本规则的人来说，这种风格反而节省时间。
+    </p>
+    <p>
+      当然，从资料整理的角度看，任何站点都有它自身的上下文局限。MK体育 的内容更新节奏不算快，有些页面停留在上一赛季的记录上，但它的索引价值在于“稳定”——当你需要回顾某个赛制或某支队伍的基础档案，它比动态门户更可靠。我的笔记里把这类资源称为“锚点页面”，适合放在书签栏的固定位置。
+    </p>
+  </div>
+
+  <!-- 引用提示 -->
+  <div class="pull-quote">
+    <em>“整理者习惯把经常查阅的体育信息源分成三类：快讯类、数据类、索引类。MK体育 属于第三类，不追赶时间，而是守住结构。”<br>—— 摘自 2024 年资料整理札记</em>
+  </div>
+
+  <!-- 特点 / 场景（以叙述方式出现） -->
+  <p class="no-indent" style="text-indent:0; margin-top:1.2rem; color:#4a4239; font-weight:400;">
+    在整理过程中，我注意到几个适合将 MK体育 作为索引锚点的场景：
+  </p>
+  <ul class="note-list">
+    <li>当需要快速确认一项运动的历史赛制演变，而不想被实时比分干扰。</li>
+    <li>当编写体育项目科普文档，需要引用稳定的赛事框架描述。</li>
+    <li>当搭建个人知识库，把内容来源按“可追溯性”分级时，它是第三级（稳定索引）的典型代表。</li>
+  </ul>
+
+  <!-- 自然嵌入链接的访问句 -->
+  <div class="access-sentence">
+    如果你也在整理体育资料，或者只是想找一个页面结构清晰的站点作为信息基准，可以花点时间浏览 
+    <a href="https://portalindex-mksports.com">MK体育</a>，看看它的目录方式和条目组织 —— 未必适合所有人，但对偏好资料感的人来说，那是一个值得留存的坐标。
+  </div>
+
+  <!-- FAQ 摘要（极简克制） -->
+  <div class="faq-tiny">
+    <h2>整理过程中出现的两个常见疑问</h2>
+    <div class="faq-item">
+      <div class="q">Q：MK体育 的内容偏向哪些运动项目？</div>
+      <div class="a">从页面结构看，足球、篮球占据主要索引深度，其次是网球、橄榄球和部分综合赛事。格斗类和冬季项目条目较少，但基础框架仍在。</div>
+    </div>
+    <div class="faq-item">
+      <div class="q">Q：作为资料索引，它的局限性是什么？</div>
+      <div class="a">更新周期不固定，部分页面可能停留在上一赛季；缺少用户评论或社区互动层，适合纯信息查询，不适合讨论。</div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="footer-note">
+    — 索引笔记 · 2025 —<br>
+    不带立场，只记结构
+  </div>
+
+</div>
+</body>
+</html>
